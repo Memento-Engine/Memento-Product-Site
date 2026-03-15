@@ -1,13 +1,6 @@
-/** @type {import('next').NextConfig} */
-const repoName = "Memento-Product-Site";
-
 const nextConfig = {
   output: "export",
-  images: {
-    unoptimized: true,
-  },
-  basePath: `/${repoName}`,
-  assetPrefix: `/${repoName}/`,
-};
+  images: { unoptimized: true }
+}
 
-export default nextConfig;
+export default nextConfig
