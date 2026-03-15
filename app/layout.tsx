@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Memento AI — Where memories become knowledge",
   description: "A personal AI search engine that captures your screen activity, extracts text with OCR, and answers your questions using retrieval-augmented generation. Local-first, privacy-focused.",
   keywords: ["AI", "personal search engine", "memory", "local-first", "privacy", "OCR", "RAG", "Windows"],
+  icons : {
+    icon: "/logo.png",
+  }
 };
 
 export default function RootLayout({
