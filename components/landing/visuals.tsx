@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eye, EyeOff, Sparkles } from "lucide-react";
+import { Bot, Eye, EyeOff } from "lucide-react";
 
 export function CaptureVisual() {
   return (
@@ -138,7 +138,7 @@ export function AskVisual() {
           transition={{ delay: 0.6, duration: 1.5 }}
         >
           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10">
-            <Sparkles className="h-3 w-3 text-primary" />
+            <Bot className="h-3 w-3 text-primary" />
           </div>
           <div className="flex gap-1">
             <motion.div
@@ -167,15 +167,15 @@ export function AskVisual() {
         >
           <div className="flex items-start gap-2">
             <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary/10">
-              <Sparkles className="h-2.5 w-2.5 text-primary" />
+              <Bot className="h-2.5 w-2.5 text-primary" />
             </div>
             <div>
               <p className="text-[11px] text-foreground">
-                Found it! Sarah mentioned "Blue Bottle Coffee" when you were
-                chatting on Tuesday.
+                Found it! Sarah mentioned &quot;Blue Bottle Coffee&quot; when
+                you were chatting on Tuesday.
               </p>
               <p className="mt-1 text-[9px] text-muted-foreground">
-                From: iMessage • 2 days ago
+                AI answer from the most relevant memory • 2 days ago
               </p>
             </div>
           </div>

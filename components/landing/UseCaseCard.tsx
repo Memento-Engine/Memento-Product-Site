@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { Bot } from "lucide-react";
 
 import { fadeInUp } from "@/components/landing/motion";
 import type { UseCase } from "@/components/landing/content";
@@ -13,6 +13,8 @@ export function UseCaseCard({
   item: UseCase;
   index: number;
 }) {
+  const Icon = item.icon;
+
   return (
     <motion.div
       variants={fadeInUp}
@@ -24,7 +26,9 @@ export function UseCaseCard({
         transition={{ duration: 0.3 }}
       />
       <div className="relative z-10">
-        <span className="text-3xl">{item.icon}</span>
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+          <Icon className="h-5 w-5" />
+        </div>
         <p className="mt-3 text-sm font-medium text-foreground">{item.title}</p>
         <motion.div
           initial={{ opacity: 0, height: 0 }}
@@ -33,7 +37,7 @@ export function UseCaseCard({
           className="mt-3 rounded-lg border border-border/60 bg-muted/40 p-3"
         >
           <div className="flex items-start gap-2">
-            <Sparkles className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-primary" />
+            <Bot className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-primary" />
             <p className="text-xs text-muted-foreground">{item.answer}</p>
           </div>
         </motion.div>

@@ -2,14 +2,19 @@ import type { LucideIcon } from "lucide-react";
 import {
   Brain,
   Clock,
+  Cpu,
   EyeOff,
   HardDrive,
   Layers,
   Lock,
+  MessageSquareText,
   Monitor,
+  Newspaper,
+  NotebookPen,
   Search,
   Shield,
   Zap,
+  CalendarClock,
 } from "lucide-react";
 
 export type Highlight = {
@@ -41,7 +46,7 @@ export type FeatureCard = {
 export type UseCase = {
   title: string;
   answer: string;
-  icon: string;
+  icon: LucideIcon;
 };
 
 export type Faq = {
@@ -52,18 +57,18 @@ export type Faq = {
 export const highlights: Highlight[] = [
   {
     icon: HardDrive,
-    label: "100% Local",
-    description: "Your data never leaves your device",
+    label: "Local by default",
+    description: "Your chat history and memory archive stay on your device",
   },
   {
-    icon: Zap,
-    label: "Instant Search",
-    description: "Find anything in milliseconds",
+    icon: Cpu,
+    label: "AI answers",
+    description: "Ask naturally and get better answers powered by AI",
   },
   {
     icon: Shield,
-    label: "Private by Design",
-    description: "No cloud, no tracking",
+    label: "Relevant context only",
+    description: "Only the useful snippets are sent to cloud LLMs when needed",
   },
 ];
 
@@ -107,7 +112,7 @@ export const howItWorksSteps: HowItWorksStep[] = [
     icon: Brain,
     title: "Ask in plain English",
     description:
-      '"What was that restaurant my friend mentioned?" — Just ask naturally and get instant answers.',
+      '"What was that restaurant my friend mentioned?" — Memento uses AI to answer naturally and only sends the relevant context needed for a better response.',
     visual: "ask",
   },
 ];
@@ -115,9 +120,9 @@ export const howItWorksSteps: HowItWorksStep[] = [
 export const featureCards: FeatureCard[] = [
   {
     icon: HardDrive,
-    title: "Stays on your computer",
+    title: "Chats and memories stay local",
     description:
-      "Everything is stored locally on your device. No cloud uploads, no external servers, your memories are yours alone.",
+      "Your timeline, saved memories, and chat history stay on your device so you stay in control of the full record.",
     gradient: "from-foreground/8 to-transparent",
   },
   {
@@ -128,17 +133,17 @@ export const featureCards: FeatureCard[] = [
     gradient: "from-muted-foreground/10 to-transparent",
   },
   {
-    icon: Search,
-    title: "Search the way you think",
+    icon: Brain,
+    title: "AI-powered answers",
     description:
-      "Don't remember exact words? No problem. Ask questions like you'd ask a friend who was sitting next to you.",
+      "Ask questions the way you naturally think. Memento uses AI to turn the right memories into clear answers.",
     gradient: "from-foreground/6 to-transparent",
   },
   {
-    icon: Clock,
-    title: "Travel back in time",
+    icon: Search,
+    title: "Relevant context only",
     description:
-      "Browse through your day, week, or month. See exactly what you were looking at and when.",
+      "When cloud AI is used, Memento sends only the minimum relevant snippets needed to answer your query better.",
     gradient: "from-muted-foreground/8 to-transparent",
   },
   {
@@ -161,29 +166,29 @@ export const useCases: UseCase[] = [
   {
     title: '"What was that article about productivity I read?"',
     answer: "Found it! You read that on Medium last Tuesday at 3:42 PM.",
-    icon: "📰",
+    icon: Newspaper,
   },
   {
     title: '"Show me that recipe from last week"',
     answer: "Here's the pasta recipe you saved from that cooking blog.",
-    icon: "🍝",
+    icon: NotebookPen,
   },
   {
     title: '"What did the meeting notes say about the deadline?"',
     answer: "From your Monday standup: deadline moved to March 15th.",
-    icon: "📅",
+    icon: CalendarClock,
   },
   {
     title: '"Find that meme my friend sent me"',
     answer: "Found 3 memes from this week. Here's the one about coding.",
-    icon: "😂",
+    icon: MessageSquareText,
   },
 ];
 
 export const faqs: Faq[] = [
   {
     q: "Is my data really private?",
-    a: "Yes, 100%. Everything stays on your computer. We physically cannot see your data because it never leaves your device. No cloud, no servers, no access.",
+    a: "Yes. Your timeline, chats, and full data stay on your computer. When AI answers need help, Memento sends only the relevant snippets to a cloud model instead of your full history.",
   },
   {
     q: "Will it slow down my computer?",
@@ -203,6 +208,6 @@ export const faqs: Faq[] = [
   },
   {
     q: "Does it work offline?",
-    a: "Yes! Since everything runs locally, you can search your memories even without an internet connection.",
+    a: "Memory capture, browsing, and local search stay available offline. AI-powered answers may use an internet connection when cloud models are enabled.",
   },
 ];
