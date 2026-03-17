@@ -1,16 +1,21 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { GithubLogo } from "@/components/ui/GithubLogo";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
+  Code2,
   ChevronDown,
   EyeOff,
+  GitBranch,
   HardDrive,
   Lock,
   MessageCircle,
   Shield,
+  Users,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import {
@@ -34,6 +39,11 @@ import {
   CaptureVisual,
   MaskVisual,
 } from "@/components/landing/visuals";
+
+const DOWNLOAD_URL =
+  "https://github.com/Memento-Engine/Memento/releases/latest/download/memento-win-Setup.exe";
+const SOURCE_CODE_URL = "https://github.com/Memento-Engine/Memento";
+const CONTRIBUTORS_PAGE_URL = "/contributors";
 
 function WindowsLogo({ className }: { className?: string }) {
   return (
@@ -173,11 +183,14 @@ export default function LandingPage() {
           <div className="flex items-center gap-2 sm:gap-3">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
+                asChild
                 size="sm"
                 className="cursor-pointer rounded-full px-3 text-xs sm:px-5 sm:text-sm"
               >
-                <WindowsLogo className="h-4 w-4" />
-                Download now
+                <a href={DOWNLOAD_URL}>
+                  <WindowsLogo className="h-4 w-4" />
+                  Download now
+                </a>
               </Button>
             </motion.div>
           </div>
@@ -244,11 +257,14 @@ export default function LandingPage() {
                   whileTap={{ scale: 0.98 }}
                 >
                   <Button
+                    asChild
                     size="lg"
                     className="w-full cursor-pointer rounded-full px-6 py-6 text-sm sm:px-10 sm:text-base"
                   >
-                    <WindowsLogo className="h-5 w-5" />
-                    Download now
+                    <a href={DOWNLOAD_URL}>
+                      <WindowsLogo className="h-5 w-5" />
+                      Download now
+                    </a>
                   </Button>
                 </motion.div>
                 <p className="text-center text-sm text-muted-foreground">
@@ -276,8 +292,8 @@ export default function LandingPage() {
                     className="group rounded-2xl border border-border/60 bg-card/50 p-4 text-left backdrop-blur-sm sm:p-5"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted/50 transition-colors group-hover:bg-muted">
-                        <Icon className="h-5 w-5 text-foreground" />
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-muted/50 transition-colors group-hover:bg-muted">
+                        <Icon className="h-5 w-5 shrink-0 text-foreground" />
                       </div>
 
                       <div>
@@ -646,6 +662,130 @@ export default function LandingPage() {
           </motion.div>
         </section>
 
+        {/* Open Source Section */}
+        <section className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 sm:py-32">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid gap-8 overflow-hidden rounded-[2rem] border border-border/60 bg-card/40 p-6 backdrop-blur-sm sm:gap-12 sm:rounded-[2.5rem] sm:p-10 lg:grid-cols-[1.2fr_0.8fr] lg:p-14"
+          >
+            <div>
+              <motion.p
+                variants={fadeInUp}
+                className="text-sm font-medium text-primary"
+              >
+                Trust and transparency
+              </motion.p>
+              <motion.h2
+                variants={fadeInUp}
+                className="mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-5xl"
+              >
+                The source code is fully public.
+              </motion.h2>
+              <motion.p
+                variants={fadeInUp}
+                className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+              >
+                Memento is open source so anyone can inspect how it works, how
+                data is handled, and what actually runs on your machine. Public
+                code makes trust verifiable instead of marketing copy. It is an
+                early project, so some parts still need polish, fixes,
+                documentation, and major improvements.
+              </motion.p>
+
+              <motion.div
+                variants={staggerContainer}
+                className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-3"
+              >
+                {[
+                  {
+                    icon: GithubLogo,
+                    title: "Public repository",
+                    desc: "Read the code, history, and release artifacts yourself.",
+                  },
+                  {
+                    icon: Code2,
+                    title: "Transparent behavior",
+                    desc: "See what is stored locally and how relevant context is selected.",
+                  },
+                  {
+                    icon: GitBranch,
+                    title: "Community review",
+                    desc: "Anyone can audit changes, open issues, and submit improvements.",
+                  },
+                ].map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <motion.div
+                      key={item.title}
+                      variants={fadeInUp}
+                      className="rounded-2xl border border-border/60 bg-background/60 p-5"
+                    >
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="mt-4 text-lg font-semibold">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {item.desc}
+                      </p>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </div>
+
+            <motion.div
+              variants={fadeInUp}
+              className="relative overflow-hidden rounded-[1.75rem] border border-border/60 bg-gradient-to-br from-primary/12 via-background/90 to-foreground/5 p-6 sm:p-8"
+            >
+              <div className="absolute inset-0 aurora-glow opacity-25" />
+              <div className="relative z-10 flex h-full flex-col">
+                <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-primary/10 text-primary">
+                  <Users className="h-7 w-7" />
+                </div>
+                <h3 className="mt-6 text-2xl font-semibold tracking-tight">
+                  Built in public, improved by contributors.
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  Explore the repository, review open work, and see how to
+                  contribute if you want to help shape Memento. One person is
+                  building it right now, so contributions of any size are
+                  genuinely appreciated, including architecture decisions,
+                  improvements, fixes, and better ways to build things.
+                </p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <Button asChild size="lg" className="rounded-full px-6">
+                    <a
+                      href={SOURCE_CODE_URL}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <GithubLogo className="h-5 w-5" />
+                      View source code
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="rounded-full border-border/70 bg-background/50 px-6"
+                  >
+                    <Link href={CONTRIBUTORS_PAGE_URL}>
+                      <Users className="h-5 w-5" />
+                      Contributors
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </section>
+
         {/* FAQ Section */}
         <section
           id="faq"
@@ -743,11 +883,14 @@ export default function LandingPage() {
                   whileTap={{ scale: 0.98 }}
                 >
                   <Button
+                    asChild
                     size="lg"
                     className="w-full cursor-pointer rounded-full px-8 py-6 text-sm font-semibold sm:px-12 sm:py-7 sm:text-base"
                   >
-                    <WindowsLogo className="h-5 w-5" />
-                    Download now
+                    <a href={DOWNLOAD_URL}>
+                      <WindowsLogo className="h-5 w-5" />
+                      Download now
+                    </a>
                   </Button>
                 </motion.div>
               </motion.div>
@@ -795,6 +938,22 @@ export default function LandingPage() {
               </span>
               <span>•</span>
               <span>Windows 10/11</span>
+              <span>•</span>
+              <a
+                href={SOURCE_CODE_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="transition-colors hover:text-foreground"
+              >
+                Source code
+              </a>
+              <span>•</span>
+              <Link
+                href={CONTRIBUTORS_PAGE_URL}
+                className="transition-colors hover:text-foreground"
+              >
+                Contributors
+              </Link>
             </div>
           </div>
         </div>
