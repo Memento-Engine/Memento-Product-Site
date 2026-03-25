@@ -274,7 +274,7 @@ export default function LandingPage() {
                   </Button>
                 </motion.div>
                 <p className="text-center text-sm text-muted-foreground">
-                  Get 3 free premium queries
+                  Early testing build &mdash; stable release coming soon
                 </p>
               </div>
             </motion.div>
@@ -682,23 +682,23 @@ export default function LandingPage() {
                 variants={fadeInUp}
                 className="text-sm font-medium text-primary"
               >
-                Trust and transparency
+                Open source
               </motion.p>
               <motion.h2
                 variants={fadeInUp}
                 className="mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-5xl"
               >
-                The source code is fully public.
+                Built in public. Every line visible.
               </motion.h2>
               <motion.p
                 variants={fadeInUp}
                 className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
               >
-                Memento is open source so anyone can inspect how it works, how
-                data is handled, and what actually runs on your machine. Public
-                code makes trust verifiable instead of marketing copy. It is an
-                early project, so some parts still need polish, fixes,
-                documentation, and major improvements.
+                Memento is fully open source. Anyone can read the code, audit
+                how data is handled, and see exactly what runs on their machine.
+                No black boxes. No hidden behaviour. If you want to understand
+                it, improve it, or challenge a decision &mdash; the repository is
+                right there.
               </motion.p>
 
               <motion.div
@@ -874,8 +874,9 @@ export default function LandingPage() {
                 transition={{ delay: 0.3 }}
                 className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg"
               >
-                Download now to get 3 free premium queries, or log in to unlock
-                5 premium queries with AI-powered answers.
+                Memento is an open-source project built in public. The current
+                download is an early testing build &mdash; a stable release is on
+                the way. Try it, break it, and share what you find.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -895,7 +896,23 @@ export default function LandingPage() {
                   >
                     <a href={DOWNLOAD_URL}>
                       <WindowsLogo className="h-5 w-5" />
-                      Download now
+                      Download for testing
+                    </a>
+                  </Button>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="w-full rounded-full border-border/60 bg-background/50 px-8 py-6 text-sm sm:px-12 sm:py-7 sm:text-base"
+                  >
+                    <a href={SOURCE_CODE_URL} target="_blank" rel="noreferrer">
+                      <GithubLogo className="h-5 w-5" />
+                      View source on GitHub
                     </a>
                   </Button>
                 </motion.div>
@@ -907,8 +924,7 @@ export default function LandingPage() {
                 transition={{ delay: 0.5 }}
                 className="mt-6 text-sm leading-relaxed text-muted-foreground/70"
               >
-                Download now: 3 free premium queries
-                • Windows 10/11
+                Testing build &mdash; Windows 10/11 &nbsp;&bull;&nbsp; Stable version coming soon
               </motion.p>
             </div>
           </motion.div>

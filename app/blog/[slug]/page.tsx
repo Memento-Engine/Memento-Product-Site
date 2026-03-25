@@ -530,11 +530,10 @@ function BlogBody() {
         <H2>Closing thought</H2>
         <P>
           The aha moment with Copilot didn’t just change how I think about coding
-          agents — it changed how I think about Memento. Both are navigating the
-          unknown with evidence. Both live or die on disciplined tool use and
-          honest context management. Looking at OpenCode confirmed that Memento
-          is on the right track — and gave me a clearer picture of where it can
-          go further.
+          agents — it changed how I think about Memento. OpenCode gave me
+          a foundation and pointed my thinking in the right direction. Memento
+          still needs better architectural design and sharper engineering
+          practices — and that's exactly what I'm working toward.
         </P>
         <P>
           If you’ve built retrieval systems, agent pipelines, or anything in this
